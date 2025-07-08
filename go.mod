@@ -10,6 +10,7 @@ replace (
 	github.com/rook/operator-kit => github.com/kastenhq/operator-kit v0.0.0-20180316185208-859e831cc18d
 	golang.org/x/net => golang.org/x/net v0.41.0
 	gopkg.in/check.v1 => github.com/kastenhq/check v0.0.0-20180626002341-0264cfcea734
+	github.com/kopia/kopia => github.com/kastenhq/internal-kopia v0.0.0-20250704002158-97afff4486bd
 )
 
 // Direct and indirect dependencies are in separate require sections.
