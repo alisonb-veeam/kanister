@@ -20,6 +20,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 
 	"github.com/kanisterio/errkit"
 	kopiacli "github.com/kopia/kopia/cli"
@@ -112,6 +113,7 @@ func GetMaintenanceOwnerForConnectedRepositoryKanx(
 func parseOwner(output []byte) (string, error) {
 	maintInfo := kopiacli.MaintenanceInfo{}
 	if err := json.Unmarshal(output, &maintInfo); err != nil {
+		fmt.Println("Alison here: Error parsing maintenance info output", err)
 		return "", errkit.Wrap(err, "failed to unmarshal maintenance info output")
 	}
 	return maintInfo.Owner, nil
