@@ -19,6 +19,7 @@ package chronicle
 import (
 	"bytes"
 	"context"
+	"fmt"
 	"io"
 
 	"github.com/kanisterio/errkit"
@@ -29,6 +30,7 @@ import (
 
 func Pull(ctx context.Context, target io.Writer, p param.Profile, manifest string) error {
 	// Read manifest
+	fmt.Println("Alison here: Pull inside kanister")
 	buf := bytes.NewBuffer(nil)
 	_ = location.Read(ctx, buf, p, manifest)
 	// Read Data

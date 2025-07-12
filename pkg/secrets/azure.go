@@ -15,6 +15,8 @@
 package secrets
 
 import (
+	"fmt"
+
 	"github.com/kanisterio/errkit"
 	corev1 "k8s.io/api/core/v1"
 
@@ -87,8 +89,13 @@ func ExtractAzureCredentials(secret *corev1.Secret) (*objectstore.SecretAzure, e
 	if envName, ok := secret.Data[AzureStorageEnvironment]; ok {
 		azSecret.EnvironmentName = string(envName)
 	}
-	if azSecret.StorageAccount == "" || azSecret.StorageKey == "" {
-		return nil, errkit.New("Azure secret is missing storage account ID or storage key")
+	/*
+		if azSecret.StorageAccount == "" || azSecret.StorageKey == "" {
+			return nil, errkit.New("Azure secret is missing storage account ID or storage key")
+		}*/
+	fmt.Println("Alison here: ExtractAzureCredentials would have errored out here")
+	if azSecret.StorageAccount == "" {
+		return nil, errkit.New("Azure secret is missing storage account ID")
 	}
 	return azSecret, nil
 }

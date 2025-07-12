@@ -136,7 +136,8 @@ func newAzureProfileCmd() *cobra.Command {
 	cmd.Flags().String(AzureStorageEnvFlag, "", "The Azure cloud environment")
 
 	_ = cmd.MarkFlagRequired(AzureStorageAccountFlag)
-	_ = cmd.MarkFlagRequired(AzureStorageKeyFlag)
+	// alison here
+	// _ = cmd.MarkFlagRequired(AzureStorageKeyFlag)
 	return cmd
 }
 

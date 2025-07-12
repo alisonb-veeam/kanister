@@ -138,6 +138,7 @@ func (p *provider) DeleteBucket(ctx context.Context, bucketName string) error {
 }
 
 func (p *provider) getOrCreateBucket(ctx context.Context, bucketName string) (Bucket, error) {
+	fmt.Println("Alison here getOrCreateBucket inside kanister")
 	d, err := p.GetBucket(ctx, bucketName)
 	if err == nil {
 		return d, nil
